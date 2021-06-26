@@ -3,6 +3,7 @@ import { calculateWinner } from "./helper";
 import Board from "./Board";
 import Button from "@material-ui/core/Button";
 import "./Game.css";
+import { Link } from "react-router-dom";
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [stepNumber, setStepNumber] = useState(0);
@@ -35,14 +36,10 @@ const Game = () => {
         <h2 style={{ color: "blue", textAlign: "center", paddingTop: "0.7em" }}>
           {winner && "Winner: " + winner + "!"}
         </h2>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={() => {
-            window.location.reload();
-          }}
-        >
-          restart Game
+        <Button color="primary" variant="contained">
+          <Link to="/" style={{ textDecoration: "none", color: "blue" }}>
+            restart Game
+          </Link>
         </Button>
       </div>
     </>
